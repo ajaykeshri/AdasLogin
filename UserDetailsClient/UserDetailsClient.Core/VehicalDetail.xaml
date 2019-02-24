@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UserDetailsClient.Core.VehicalDetail"
+              Title="Calibration"
+                
+             >
+    
+   <ContentPage.Content>
+        <ScrollView>
+            <AbsoluteLayout HorizontalOptions="FillAndExpand"
+    VerticalOptions="FillAndExpand">
+
+         
+            <StackLayout Orientation="Vertical" HorizontalOptions="Center" VerticalOptions="Center" >
+                <StackLayout x:Name="stackForm" HorizontalOptions="Center" VerticalOptions="Center" Padding="10">
+                    <Label Text="Welcome to Vehicle Detail screen"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+                    <Entry Placeholder=" Please Enter Order Number" x:Name="orderNumber" TextColor="Black" />
+
+                    <Button Text="Submit" FontSize="14" BorderColor="AliceBlue" TextColor="Green" Clicked="Submitt_Clicked"/>
+
+                </StackLayout>
+                <StackLayout x:Name="stackDisplay"   Padding="20" Orientation="Vertical">
+                    <Label Text=" Vehicle Details " TextColor="Green" VerticalOptions="Center" FontSize="32"/>
+                    <Label x:Name="CarNumberDisplace" TextColor="Red" FontSize="16" />
+                    <Label x:Name="VehicleName" FontSize="16"/>
+                    <Label Text="Plate # 012-ABC " FontSize="16"/>
+                    <Label Text=" Corrected" FontSize="24" TextColor="Green"/>
+                    <Label Text="Lane Departure" FontSize="16"/>
+                    <Label Text="Rear View Camera" FontSize="16"/>
+
+                    <Label Text=" Error" FontSize="24" TextColor="Green"/>
+                    <Label Text="3D backupo camera" FontSize="16"/>
+                    <Label Text="Adaptive cruise control" FontSize="16"/>
+                    <Image Source="connector.jpg" />
+
+                    
+                </StackLayout>
+                <StackLayout x:Name="stackVinDisplay" Padding="20" Orientation="Vertical" IsVisible="False">
+
+                    <Label Text="Please Connect  OBD ll" FontSize="32" TextColor="Green"/>
+                        <Entry Placeholder=" Please enter 17 digit Vin number" x:Name="VinEnteredNumber" TextColor="Black" Text="2T1BR32EX6C593681"/>
+                    <Button Text="Submit" FontSize="14" BorderColor="AliceBlue" TextColor="Green" Clicked="Button_ClickedVin"/>
+
+                </StackLayout>
+                <StackLayout x:Name="StackVinDisplay" Padding="20" Orientation="Vertical" IsVisible="False">
+                    <Label Text="Detail of the vehicle" FontSize="32" TextColor="Green"/>
+                    <Label   x:Name="LabCount" TextColor="Blue"/>
+                        <Label  x:Name="LabMessage" TextColor="Blue"/>
+                        <Label x:Name="LabSearchCriteria" TextColor="Blue"/>
+                
+
+                    <ListView x:Name="VinResult"   HasUnevenRows="True" Margin="4,4,4,4" >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Orientation="Vertical" >
+
+                                            <Label  Text="{Binding Value}" IsVisible="{Binding HasComment}"/>
+                                            <Label Text="{Binding ValueId}" IsVisible="{Binding HasComment}" />
+                                            <Label Text="{Binding Variable}" IsVisible="{Binding HasComment}"/>
+                                            <Label Text="{Binding VariableId}" IsVisible="{Binding HasComment}"/>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </StackLayout>
+        
+            <ActivityIndicator x:Name="actIndicator2"
+                BackgroundColor="Transparent" />
+        </AbsoluteLayout>
+        </ScrollView>
+    </ContentPage.Content>
+       
+</ContentPage>

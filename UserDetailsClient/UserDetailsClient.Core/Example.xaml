@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ADASMobileClient.Core.Example"
+             xmlns:custom="clr-namespace:ADASMobileClient.Core"
+             >
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+
+            <Grid Grid.Row="1" ColumnSpacing="0" 
+      RowSpacing="0" 
+      Padding="0"
+      BackgroundColor="#606060">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <StackLayout Grid.Row="1" 
+                 Orientation="Horizontal"
+                 Spacing="0"
+                >
+
+                    <Entry x:Name="myEntry" 
+               TextColor="Black"  
+               Text="1" 
+               Keyboard="Numeric"  
+               BackgroundColor="White" 
+               HorizontalOptions="FillAndExpand" 
+               VerticalOptions="CenterAndExpand"
+             >
+                    </Entry>
+                    <Image Source="iconscan.png" 
+               Aspect="AspectFit" 
+                      Margin="0,0,70,0"
+                 HeightRequest="40" 
+               WidthRequest="50"
+               BackgroundColor="Silver"/>
+                </StackLayout>
+            </Grid>
+
+            <StackLayout Orientation="Horizontal">
+
+                <Grid Grid.Row="1" ColumnSpacing="0" 
+      RowSpacing="0" 
+      Padding="0"
+      BackgroundColor="#606060">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <StackLayout Grid.Row="1" 
+                 Orientation="Horizontal"
+                 Spacing="0"
+                >
+                        <custom:CustomEntry  
+                             x:Name="VinEnteredNumber"
+                             CornerRadius="5"  
+                             IsCurvedCornersEnabled="True"  
+                             BorderColor="#A5AEB7"      
+                             HorizontalTextAlignment="Start"  
+                             FontSize="16"  
+                             HeightRequest="47"  
+                             WidthRequest="464"
+                           FontFamily="Roboto"
+                            BackgroundColor="#333B4A"
+                              TextColor="#FFFFFF" 
+                             FontAttributes="Bold"  
+                             />
+                        <Image Margin="0,0,70,0" Source="iconscan.png" BackgroundColor="#A5AEB7" 
+                             HeightRequest="40"  
+                             WidthRequest="47"></Image>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+
+            <StackLayout Padding="40" Spacing="10">
+                <custom:ImageEntry TextColor="White" 
+                        PlaceholderColor="Blue" 
+                        Image="iconscan.png" 
+                        Placeholder="Emil" 
+                        HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+        </StackLayout>
+
+
+    </ContentPage.Content>
+</ContentPage>

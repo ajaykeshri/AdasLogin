@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ADASMobileClient.Core.Calibration"
+             xmlns:custom="clr-namespace:ADASMobileClient.Core"
+             Title="Calibration Order Creation" 
+             BackgroundColor="Black"
+            
+             >
+    <ContentPage.Content>
+     
+                <StackLayout Orientation="Vertical"  >
+                    <StackLayout IsVisible="True" x:Name ="vinEnterLayout" Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
+                  <Label Text="VIN Number * " FontSize="14" TextColor="#9B9B9B"></Label>  
+                <StackLayout Orientation="Horizontal">
+                      <custom:CustomEntry  
+                             x:Name="VinEnteredNumber"
+                             CornerRadius="5"  
+                             IsCurvedCornersEnabled="True"  
+                             BorderColor="#A5AEB7"      
+                             HorizontalTextAlignment="Start"  
+                             FontSize="16"  
+                             HeightRequest="47"  
+                             WidthRequest="464"
+                           FontFamily="Roboto"
+                            BackgroundColor="#333B4A"
+                              TextColor="#FFFFFF" 
+                             FontAttributes="Bold"  
+                             />
+                    <Image  Source="iconscan.png" BackgroundColor="#A5AEB7" HeightRequest="55"  
+                             WidthRequest="47"></Image>
+                </StackLayout>
+                <Label Text="Plate Number (Optional) " TextColor="#9B9B9B" FontSize="14"></Label>
+                <StackLayout Orientation="Horizontal">
+                    <custom:CustomEntry  
+                             x:Name="orderNumber"
+                             CornerRadius="10"  
+                             IsCurvedCornersEnabled="True"  
+                             BorderColor="#A5AEB7"      
+                             HorizontalTextAlignment="Start"  
+                             FontSize="16"  
+                              HeightRequest="47"  
+                             WidthRequest="464"
+                             FontFamily="Roboto"
+                           BackgroundColor="#333B4A"
+                             TextColor="#FFFFFF" 
+                             FontAttributes="Bold"  
+                             />
+                    <Image  Source="iconscan.png"  BackgroundColor="#A5AEB7" HeightRequest="55"  
+                             WidthRequest="47"></Image>
+                </StackLayout>
+                <Label Text="Repair Order Number (Optional)" TextColor="#9B9B9B" FontSize="14"></Label>
+                <StackLayout Orientation="Horizontal">
+                    <custom:CustomEntry  
+                             x:Name="RepairOrderNumber"
+                             CornerRadius="10"  
+                          FontFamily="Roboto"
+                       
+                             IsCurvedCornersEnabled="True"  
+                             BorderColor="#A5AEB7"      
+                             HorizontalTextAlignment="Start"  
+                             FontSize="16"  
+                             HeightRequest="47"  
+                             WidthRequest="464"
+                           BackgroundColor="#333B4A"
+                          
+                             TextColor="#FFFFFF"  
+                             FontAttributes="Bold"  
+                            />
+                    <Image  Source="iconscan.png"  BackgroundColor="#A5AEB7" HeightRequest="55"     WidthRequest="47"></Image>
+                </StackLayout>
+                <StackLayout Margin="0,20,0,0" Orientation="Horizontal" x:Name="stackForm" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
+                    <Button Text="Cancel" FontSize="18"  FontFamily="Roboto" BackgroundColor="#949FAB" WidthRequest="160" HeightRequest="47" TextColor="White" Clicked="Cancel_Clicked"/>
+                    <Button Text="Submit" FontSize="18"  FontFamily="Roboto" BackgroundColor="#F44336" WidthRequest="160" HeightRequest="47" TextColor="#FFFFFF" Clicked="Submitt_Clicked"/>
+                </StackLayout>
+
+                    </StackLayout>
+                    <StackLayout x:Name="StackVinDisplay" Padding="20" Orientation="Vertical" IsVisible="False">
+                        <Label Text="Detail of the vehicle" FontSize="32" TextColor="Green"/>
+                        <Label   x:Name="LabCount" TextColor="Blue"/>
+                        <Label  x:Name="LabMessage" TextColor="Blue"/>
+                        <Label x:Name="LabSearchCriteria" TextColor="Blue"/>
+
+
+                        <ListView x:Name="VinResult"   HasUnevenRows="True" Margin="4,4,4,4" IsVisible="False">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout Orientation="Vertical" >
+
+                                            <Label  Text="{Binding Value}" IsVisible="{Binding HasComment}"/>
+                                            <Label Text="{Binding ValueId}" IsVisible="{Binding HasComment}" />
+                                            <Label Text="{Binding Variable}" IsVisible="{Binding HasComment}"/>
+                                            <Label Text="{Binding VariableId}" IsVisible="{Binding HasComment}"/>
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+            <Label Text="Vehicle Details" x:Name="VehicleDetailsLabel"  HorizontalOptions="Center" VerticalOptions="CenterAndExpand" TextColor="White" Margin="0,20,0,0" FontSize="24" FontFamily="Roboto" IsVisible="False" ></Label>
+            <StackLayout Orientation="Horizontal" x:Name="CalibrationResult"  IsVisible="False"  HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Margin="0,100,0,0"
+                         Padding="10" HeightRequest="601" WidthRequest="1062"
+>
+                
+                <StackLayout Orientation="Vertical">
+                  
+                    <Label x:Name="CarName" HorizontalOptions="CenterAndExpand"  FontSize="Large" Margin="0,0,0,10" TextColor="White"></Label>    
+                <Image Source="splash_car.png"   HeightRequest="374" WidthRequest="632"/>
+                    
+                </StackLayout>
+                <StackLayout Orientation="Vertical"   >
+                    <StackLayout Orientation="Horizontal">
+
+                        <StackLayout Orientation="Vertical">
+                            <Label Text="VIN Number" Opacity="0.7" FontSize="14" TextColor="White"></Label>
+                            <Label x:Name="vinNumber" FontSize="16"  TextColor="White"></Label>
+                            <Label Text="Brand"  FontSize="14" Opacity="0.7" TextColor="White"></Label>
+                            <Label  x:Name="brandName" FontSize="16" TextColor="White"></Label>
+                            <Label Text="Plat #"  Opacity="0.7" FontSize="14" TextColor="White"></Label>
+                            <Label  x:Name="platNumber"  FontSize="16" TextColor="White"></Label>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical">
+                            <Label   Text="Worked Order " Opacity="0.7" FontSize="14"  TextColor="White"></Label>
+                            <Label   x:Name="workOrder" FontSize="16" TextColor="White"></Label>
+                            <Label  Text="Model "  Opacity="0.7" FontSize="14" TextColor="White" ></Label>
+                            <Label   x:Name="modelNumber" FontSize="16"  TextColor="White"></Label>
+                            <Label  Text="Year "  Opacity="0.7" FontSize="14" TextColor="White"></Label>
+                            <Label   x:Name="year"  FontSize="16" TextColor="White"></Label>
+                        </StackLayout>
+                    </StackLayout>
+
+                            
+                           
+                       
+                <StackLayout Orientation="Horizontal" x:Name="CalibrationstackForm" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="10">
+
+                           <Button Text="Cancel" FontSize="18"  FontFamily="Roboto" BackgroundColor="#949FAB"  TextColor="White" WidthRequest="160" HeightRequest="47"  Clicked="ConfirmCalibrationCancel_Clicked"  />
+                        <Button Text="Confirm" FontSize="18"   FontFamily="Roboto" BackgroundColor="#F44336" WidthRequest="160" HeightRequest="47" TextColor="#FFFFFF" Clicked="ConfirmCalibrationSubmitt_Clicked"/>
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+            <ActivityIndicator x:Name="actIndicator2"
+                BackgroundColor="Transparent" />
+        </StackLayout>
+             
+       
+    </ContentPage.Content>
+</ContentPage>
