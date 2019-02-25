@@ -91,7 +91,7 @@ namespace ADASMobileClient.Core
                         workOrder.Text = vehicleVinResponse.Results[6].ValueId;
                         brandName.Text =vehicleVinResponse.Results[6].Value;
                         modelNumber.Text =Convert.ToString(vehicleVinResponse.Results[6].VariableId);
-                        platNumber.Text = vehicleVinResponse.Results[6].ValueId;
+                      //  platNumber.Text = vehicleVinResponse.Results[6].ValueId;
                         year.Text = "Year : " + "2016";
 
                          
@@ -139,9 +139,10 @@ namespace ADASMobileClient.Core
             System.Diagnostics.Process.GetCurrentProcess().Kill();
         }
 
-        private void ConfirmCalibrationSubmitt_Clicked(object sender, EventArgs e)
+        private async void ConfirmCalibrationSubmitt_Clicked(object sender, EventArgs e)
         {
-
+           
+            await Navigation.PushAsync(new ConfirmOrder());
         }
 
     }

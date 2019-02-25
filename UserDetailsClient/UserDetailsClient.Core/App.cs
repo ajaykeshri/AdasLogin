@@ -26,8 +26,9 @@ namespace UserDetailsClient.Core
         public static string AuthorityPasswordReset = $"{AuthorityBase}{PolicyResetPassword}";
 
         public static UIParent UiParent = null;
-      //  public static string BaseUrl = "https://172.16.204.41:20300";
-        public static string BaseUrl = "https://172.30.166.161:20300"; 
+        //  public static string BaseUrl = "https://172.16.204.41:20300"; //office
+        // public static string BaseUrl = "https://172.30.166.161:20300";    //jeo
+        public static string BaseUrl = "https://vsgdev.centralus.cloudapp.azure.com:20300"; 
 
 
 

@@ -13,8 +13,8 @@ namespace UserDetailsClient.Core
             splashImage = new Image
             {
                 Source = "splash_car.png",
-                HeightRequest = 500,
-                WidthRequest = 500
+                HeightRequest = 1000,
+                WidthRequest = 1000
 
 
             };
