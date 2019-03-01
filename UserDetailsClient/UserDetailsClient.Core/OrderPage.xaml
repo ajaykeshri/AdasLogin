@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ADASMobileClient.Core"
+             xmlns:view="clr-namespace:ADASMobileClient.Core.View;assembly=ADASMobileClient.Core"
+             xmlns:viewModel="clr-namespace:ADASMobileClient.Core.ViewModel;assembly=ADASMobileClient.Core"
+             xmlns:view1="clr-namespace:ADASMobileClient.Core.view"
+             x:Class="ADASMobileClient.Core.OrderPage"
+             ControlTemplate="{StaticResource MainPageTemplate}"
+             Title="Work Order">
+    
+    <ContentPage.BindingContext>
+        <viewModel:CardDataViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.ToolbarItems>
+  
+        <ToolbarItem Icon="iconscan.png" Text="Search"  />
+        
+        <ToolbarItem Name="MenuItem1" Order="Primary" Icon="iconscan.png" Text="Item 1" Priority="0" />
+        <ToolbarItem Name="MenuItem2" Order="Primary" Icon="iconscan.png" Text="Item 2" Priority="1" />
+        <ToolbarItem Name="NewCalibration" Order="Primary" Clicked="NewCalibration_Clicked" 
+                     Text="Create New Calibration Order" Priority="2"></ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <StackLayout Orientation="Vertical">
+        <Grid RowSpacing="5" ColumnSpacing="5" BackgroundColor="#283042">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            
+         
+            <ListView Grid.Row="0"  x:Name="listView" SelectedItem="{Binding SelcetedItem,Mode=TwoWay}" 
+             
+                      
+              ItemsSource="{Binding CardDataCollection}" HasUnevenRows="True"  >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <view1:CardViewTemplet/>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </StackLayout>
+</ContentPage>
