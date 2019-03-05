@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ADASMobileClient.Core.CalibrationOrderSetupPage"
+             BackgroundColor="Black">
+    <ContentPage.Content>
+       
+            <StackLayout Margin="20,20,20,20"  BackgroundColor="#283042" HeightRequest="93" WidthRequest="1130">
+            <Label  FontSize="16" TextColor="#FFFFFF" Text="Calibration Order Setup"  HorizontalTextAlignment="Center" ></Label>
+                <Frame CornerRadius="5" 
+           
+           VerticalOptions="Start"
+           HasShadow="True"
+                   BackgroundColor="#283042"
+                   BorderColor="Black"
+                  
+           Padding="2">
+                <StackLayout  Margin="10,10,10,10" Orientation="Horizontal">
+                    <StackLayout  Margin="20,20,20,20" Orientation="Vertical">
+                        <Label  Text="VIN Number" FontSize="10" TextColor="#F7F7F7"/>
+                        <Label x:Name="VinNumber" Text="1HFKSKKDSK39SD234" FontSize="16" TextColor="#FFFFFF"/>
+                    </StackLayout>
+                    <StackLayout Margin="60,20,20,20" Orientation="Vertical">
+                        <Label  Margin="0,10,0,0" Text="Work Order" FontSize="10" TextColor="#F7F7F7"/>
+                        <Label  x:Name="WorkNumber"  Text="#123456" FontSize="16" TextColor="#FFFFFF"/>
+                    </StackLayout>
+                    <StackLayout  Margin="60,20,20,20" Orientation="Vertical">
+                        <Label  Margin="0,10,0,0" Text="Model" FontSize="10" TextColor="#F7F7F7"/>
+                        <Label  x:Name="ModelNumber"  Text="#123456" FontSize="16" TextColor="#FFFFFF"/>
+
+                    </StackLayout>
+                    <StackLayout  Margin="60,20,20,20" Orientation="Vertical">
+                        <Label  Text="Yesr" Margin="0,10,0,0"  FontSize="10" TextColor="#F7F7F7"></Label>
+                        <Label  Text="1985" x:Name="Year"  FontSize="16" TextColor="#FFFFFF"></Label>
+                    </StackLayout>
+                    <StackLayout   Margin="60,20,20,20" Orientation="Vertical">
+                        <Label  Margin="0,10,0,0" Text="Total No of Calibration" FontSize="10" TextColor="#F7F7F7"/>
+                        <Label x:Name="TotalNoOfCalibration"  Text="06" FontSize="16" TextColor="#FFFFFF"/>
+                    </StackLayout>
+                    <StackLayout  Margin="60,20,20,20" Orientation="Vertical">
+                        <Label  Margin="20,20,0,0"  Text="No of Calibration Completed" FontSize="10" TextColor="#F7F7F7"/>
+                        <Label  x:Name="NoOfCalibrationCompleted"  Text="03" FontSize="16" TextColor="#FFFFFF"/>
+                    </StackLayout>
+
+                </StackLayout>
+            </Frame>
+            <StackLayout Orientation="Vertical">
+                <Frame CornerRadius="5" 
+           
+           VerticalOptions="Start"
+           HasShadow="True"
+                   BackgroundColor="#283042"
+                   BorderColor="Black"
+                  Margin="10,10,10,10"
+           Padding="2">
+                    <StackLayout BackgroundColor="#283042"  WidthRequest="747" HeightRequest="558"  Orientation="Horizontal">
+
+                        <Label  FontSize="14" TextColor="White" Text="ADAS Module Name " ></Label>
+                        <Label  Margin="80,0,20,20" FontSize="14" TextColor="White" Text="Module Availability " ></Label>
+                        <Label  Margin="80,0,20,20" FontSize="14" TextColor="White" Text="Target Availability" ></Label>
+                        <Label   Margin="80,0,20,20" FontSize="14" TextColor="White" Text="Status" ></Label>
+
+                    </StackLayout>
+                </Frame>
+
+                <StackLayout BackgroundColor="#283042"  WidthRequest="369" HeightRequest="558" ></StackLayout>
+                <Frame CornerRadius="5" 
+           
+           VerticalOptions="Start"
+           HasShadow="True"
+                   BackgroundColor="#283042"
+                   BorderColor="Black"
+                  Margin="10,10,10,10"
+           Padding="2">
+                    <Label  HeightRequest="52" FontSize="14" TextColor="White" Text="Additional Instruction"></Label>
+                </Frame>
+                
+
+                <StackLayout Orientation="Vertical">
+            
+                        <Image Source="icon" HeightRequest="32" WidthRequest="32"></Image>
+
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Even Stephens" FontSize="14" TextColor="#FFFFFF"/>
+                            <Label Text="09 March 2019" FontSize="11" TextColor="#B8BBC0"/>
+                            <Label  FontSize="12" TextColor="  #FFFFFF " Text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley ."></Label>
+                        </StackLayout>
+                   
+                </StackLayout>
+
+            </StackLayout> 
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -25,22 +25,29 @@ namespace UserDetailsClient.Core
         public static string AuthorityEditProfile = $"{AuthorityBase}{PolicyEditProfile}";
         public static string AuthorityPasswordReset = $"{AuthorityBase}{PolicyResetPassword}";
 
-        public static UIParent UiParent = null;
+        public static string Username = string.Empty;
+
+        public static UIParent UiParent { get; set; }
+
         //  public static string BaseUrl = "https://172.16.204.41:20300"; //office
         // public static string BaseUrl = "https://172.30.166.161:20300";    //jeo
-        public static string BaseUrl = "https://vsgdev.centralus.cloudapp.azure.com:20300"; 
+        public static string BaseUrl = "https://vsgdev.centralus.cloudapp.azure.com:20300";
 
-
+       
 
         public App()
         {
+            
             // default redirectURI; each platform specific project will have to override it with its own
-            PCA = new PublicClientApplication(ClientID, Authority);
-            PCA.RedirectUri = $"msal{ClientID}://auth";
+            PCA = new PublicClientApplication(ClientID)
+            {
+                RedirectUri = $"msal{App.ClientID}://auth",
+            };
 
-             MainPage = new NavigationPage(new SplashPage());
+              // MainPage = new NavigationPage(new SplashPage());
             // MainPage = new NavigationPage(new VehicalDetail());
-           // MainPage = new NavigationPage(new Example());
+            MainPage = new NavigationPage(new GrideListPage());
+           // MainPage = new NavigationPage(new CalibrationOrderSetupPage());
 
         }
 

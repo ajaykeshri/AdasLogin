@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ADASMobileClient.Core.GrideListPage"
+             BackgroundColor="#000000"
+             xmlns:local="clr-namespace:ADASMobileClient.Core"
+             Title="Work Order"
+             >
+    <ContentPage.Content>
+
+        <StackLayout >
+            <StackLayout Orientation="Horizontal">
+                <SearchBar  BackgroundColor="#333B4A"  TextColor="#FFFFFF" WidthRequest="733" HeightRequest="39" x:Name="SearchBar" SearchCommand="{Binding SearchCommand}" SearchCommandParameter="{Binding Text, Source={x:Reference SearchBar}}">
+                    <SearchBar.Behaviors>
+                        <local:TextChangedBehavior />
+                    </SearchBar.Behaviors>
+                </SearchBar>
+                <Image Margin="20" Source="sort" HeightRequest="39" WidthRequest="47" BackgroundColor="#A5AEB7"></Image>
+                <Image Margin="20" Source="filter" HeightRequest="39" WidthRequest="47" BackgroundColor="#A5AEB7"></Image>
+
+
+                <Button  Clicked="NewCalibratinButon_Clicked" HeightRequest="47" WidthRequest="236" VerticalOptions="Center"  HorizontalOptions="EndAndExpand"  BackgroundColor="Red" TextColor="White" FontSize="12" Text="Create New Calibration Order"></Button>
+
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+
+                <Label   Margin="20" Text="Active Work Order" FontSize="24" TextColor="#FFFFFF" ></Label>
+                <Label  Text="09 of 900" TextColor="#FFFFFF" FontSize="18" HorizontalOptions="EndAndExpand"></Label>
+            </StackLayout>
+            <CollectionView x:Name="CV" ItemsSource="{Binding People}" VerticalOptions="Center" HorizontalOptions="Center" Margin="20,0,10,0" >
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="3"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BackgroundColor="#283042"  BorderColor="Black" CornerRadius="3" HasShadow="False">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="100" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <StackLayout Grid.Column="0">
+                                    <Label  Text="VIN Number" FontSize="10" TextColor="#F7F7F7"/>
+                                    <Label x:Name="VinNumber" Text="1HFKSKKDSK39SD234" FontSize="16" TextColor="#FFFFFF"/>
+                                    <BoxView BackgroundColor="Black" HeightRequest="1"  HorizontalOptions="FillAndExpand"/>
+                                    <Label  Margin="0,10,0,0" Text="Work Order" FontSize="10" TextColor="#F7F7F7"/>
+                                    <Label  x:Name="WorkNumber"  Text="#123456" FontSize="16" TextColor="#FFFFFF"/>
+                                    <Label  Margin="0,10,0,0" Text="Model" FontSize="10" TextColor="#F7F7F7"/>
+                                    <Label  x:Name="ModelNumber"  Text="#123456" FontSize="16" TextColor="#FFFFFF"/>
+                                    <Label Grid.Column="0" Grid.Row="6" Text="Start Date" Margin="0,10,0,0"  FontSize="10" TextColor="#F7F7F7"></Label>
+                                    <Label Grid.Column="0" Grid.Row="7" Text=" 12/03/1981" x:Name="StartDate"  FontSize="16" TextColor="#FFFFFF"></Label>
+                                    <StackLayout Orientation="Horizontal">
+                                        <StackLayout Orientation="Vertical">
+                                            <Label  Margin="0,10,0,0" Text="Total No of Calibration" FontSize="10" TextColor="#F7F7F7"/>
+
+                                            <Label x:Name="TotalNoOfCalibration"  Text="06" FontSize="16" TextColor="#FFFFFF"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Vertical">
+                                            <Label  Margin="20,20,0,0"  Text="No of Calibration Completed" FontSize="10" TextColor="#F7F7F7"/>
+                                            <Label  x:Name="NoOfCalibrationCompleted"  Text="03" FontSize="16" TextColor="#FFFFFF"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                    <Button x:Name="CalibratinButon" Clicked="CalibratinButon_Clicked" Text="Calibration" TextColor="White" BackgroundColor="#D2453A" FontSize="14" WidthRequest="334" HeightRequest="47"/>
+                                </StackLayout>
+                                <StackLayout Grid.Column="1"  Margin="10,10,30,0">
+                                    <Image  Source="edit" HeightRequest="11" WidthRequest="11"/>
+
+                                    <Image  Source="car_image" Margin="0,20,30,0"  HeightRequest="178" WidthRequest="111"/>
+
+                                    <Label Text="{Binding}" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+                                </StackLayout>
+
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+        </ContentPage.Content>
+</ContentPage>

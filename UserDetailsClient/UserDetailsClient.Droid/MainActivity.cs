@@ -31,7 +31,8 @@ namespace UserDetailsClient.Droid
                 .ServerCertificateValidationCallback +=
                 (sender, cert, chain, sslPolicyErrors) => true;
             ServicePointManager.ServerCertificateValidationCallback += (o, cert, chain, errors) => true;
-
+           // global::Xamarin.Forms.Forms.SetFlags(new[] { "CollectionView_Experimental", "Shell_Experimental" });
+            global::Xamarin.Forms.Forms.SetFlags("Shell_Experimental", "Visual_Experimental", "CollectionView_Experimental");
             global::Xamarin.Forms.Forms.Init(this, bundle);
 
             LoadApplication(new App());

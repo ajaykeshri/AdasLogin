@@ -6,8 +6,7 @@
              xmlns:viewModel="clr-namespace:ADASMobileClient.Core.ViewModel;assembly=ADASMobileClient.Core"
              xmlns:view1="clr-namespace:ADASMobileClient.Core.view"
              x:Class="ADASMobileClient.Core.OrderPage"
-             ControlTemplate="{StaticResource MainPageTemplate}"
-             Title="Work Order">
+               Title="Work Order">
     
     <ContentPage.BindingContext>
         <viewModel:CardDataViewModel/>

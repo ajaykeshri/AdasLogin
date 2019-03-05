@@ -23,6 +23,7 @@ namespace ADASMobileClient.Core
         HttpClient client;
         VehicleVinResponse vehicleVinResponse;
         private string token;
+        string BaseUrl = "https://vsgdev.centralus.cloudapp.azure.com:20300";
 
         public Calibration ()
 		{
@@ -67,7 +68,7 @@ namespace ADASMobileClient.Core
 
                     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
                     //specify to use TLS 1.2 as default connection
-                    var getResult = await client.GetAsync(App.BaseUrl + "/api/vehicle/vindecode/" + VinNumber);
+                    var getResult = await client.GetAsync(BaseUrl + "/api/vehicle/vindecode/" + VinNumber);
                     if (getResult.IsSuccessStatusCode)
                     {
                         StackVinDisplay.SetValue(IsVisibleProperty, false);
@@ -134,15 +135,17 @@ namespace ADASMobileClient.Core
         }
 
        
-        private void Cancel_Clicked(object sender, EventArgs e)
+        private async void Cancel_Clicked(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.GetCurrentProcess().Kill();
+            await Navigation.PushAsync(new Calibration());
         }
 
         private async void ConfirmCalibrationSubmitt_Clicked(object sender, EventArgs e)
         {
            
-            await Navigation.PushAsync(new ConfirmOrder());
+            await Navigation.PushAsync(new GrideListPage());
+
+
         }
 
     }
