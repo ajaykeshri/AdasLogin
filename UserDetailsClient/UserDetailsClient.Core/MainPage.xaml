@@ -13,6 +13,7 @@
          
             <Image Source="splash_car.png"></Image>
            
+           
 
             <StackLayout   Orientation="Vertical" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Spacing="20" Padding="20">
                             

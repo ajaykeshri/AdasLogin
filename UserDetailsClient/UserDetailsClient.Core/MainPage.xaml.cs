@@ -74,11 +74,12 @@ namespace UserDetailsClient.Core
             {
                 JObject user = JObject.Parse(responseString);
 
-             //   slUser.IsVisible = true;
+                //   slUser.IsVisible = true;
+               await Navigation.PushAsync(new GrideListPage());
 
                 Device.BeginInvokeOnMainThread(() =>
                 {
-                     Navigation.PushAsync(new GrideListPage());
+                    // Navigation.PushAsync(new GrideListPage());
 
                     //lblDisplayName.Text = user["displayName"].ToString();
                     //lblGivenName.Text = user["givenName"].ToString();

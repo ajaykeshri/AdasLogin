@@ -46,8 +46,8 @@ namespace UserDetailsClient.Core
 
               // MainPage = new NavigationPage(new SplashPage());
             // MainPage = new NavigationPage(new VehicalDetail());
-            MainPage = new NavigationPage(new GrideListPage());
-           // MainPage = new NavigationPage(new CalibrationOrderSetupPage());
+          //  MainPage = new NavigationPage(new GrideListPage());
+            MainPage = new NavigationPage(new CalibrationOrderSetupPage());
 
         }
 

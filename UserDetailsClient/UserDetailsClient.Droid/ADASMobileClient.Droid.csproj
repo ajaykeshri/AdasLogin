@@ -273,6 +273,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomEntryRenderer.cs" />
+    <Compile Include="FocusEffect .cs" />
     <Compile Include="ImageEntryRenderer.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="MyFrameRenderer.cs" />
