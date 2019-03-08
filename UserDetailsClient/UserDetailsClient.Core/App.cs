@@ -1,5 +1,6 @@
 ﻿using System;
 using ADASMobileClient.Core;
+using ADASMobileClient.Core.view;
 using Microsoft.Identity.Client;
 
 using Xamarin.Forms;
@@ -32,6 +33,7 @@ namespace UserDetailsClient.Core
         //  public static string BaseUrl = "https://172.16.204.41:20300"; //office
         // public static string BaseUrl = "https://172.30.166.161:20300";    //jeo
         public static string BaseUrl = "https://vsgdev.centralus.cloudapp.azure.com:20300";
+        public static string BaseUrlLocal = "https://192.168.0.102:20300";
 
        
 
@@ -46,8 +48,9 @@ namespace UserDetailsClient.Core
 
               // MainPage = new NavigationPage(new SplashPage());
             // MainPage = new NavigationPage(new VehicalDetail());
-          //  MainPage = new NavigationPage(new GrideListPage());
-            MainPage = new NavigationPage(new CalibrationOrderSetupPage());
+           //  MainPage = new NavigationPage(new VerticalGridPage());
+            // MainPage = new NavigationPage(new CalibrationOrderSetupPage());
+            MainPage = new NavigationPage(new GrideListPage());
 
         }
 

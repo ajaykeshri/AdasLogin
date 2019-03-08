@@ -8,7 +8,7 @@
              >
     <ContentPage.Content>
 
-        <StackLayout >
+        <StackLayout Orientation="Vertical" >
             <StackLayout Orientation="Horizontal">
                 <SearchBar  BackgroundColor="#333B4A"  TextColor="#FFFFFF" WidthRequest="733" HeightRequest="39" x:Name="SearchBar" SearchCommand="{Binding SearchCommand}" SearchCommandParameter="{Binding Text, Source={x:Reference SearchBar}}">
                     <SearchBar.Behaviors>
@@ -27,9 +27,11 @@
                 <Label   Margin="20" Text="Active Work Order" FontSize="24" TextColor="#FFFFFF" ></Label>
                 <Label  Text="09 of 900" TextColor="#FFFFFF" FontSize="18" HorizontalOptions="EndAndExpand"></Label>
             </StackLayout>
-            <CollectionView x:Name="CV" ItemsSource="{Binding People}" VerticalOptions="Center" HorizontalOptions="Center" Margin="20,0,10,0" >
+            <CollectionView  ItemsSource="{Binding Monkeys}" VerticalOptions="Center" HorizontalOptions="Center" Margin="20,0,10,0" 
+                            >
                 <CollectionView.ItemsLayout>
                     <GridItemsLayout Orientation="Vertical" Span="3"/>
+                   
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
@@ -44,23 +46,23 @@
                                 </Grid.RowDefinitions>
                                 <StackLayout Grid.Column="0">
                                     <Label  Text="VIN Number" FontSize="10" TextColor="#F7F7F7"/>
-                                    <Label x:Name="VinNumber" Text="1HFKSKKDSK39SD234" FontSize="16" TextColor="#FFFFFF"/>
+                                    <Label    Text="{Binding vinnumber }"  FontSize="16" TextColor="#FFFFFF"/>
                                     <BoxView BackgroundColor="Black" HeightRequest="1"  HorizontalOptions="FillAndExpand"/>
                                     <Label  Margin="0,10,0,0" Text="Work Order" FontSize="10" TextColor="#F7F7F7"/>
-                                    <Label  x:Name="WorkNumber"  Text="#123456" FontSize="16" TextColor="#FFFFFF"/>
+                                    <Label  Text="{Binding workorder }"  FontSize="16" TextColor="#FFFFFF"/>
                                     <Label  Margin="0,10,0,0" Text="Model" FontSize="10" TextColor="#F7F7F7"/>
-                                    <Label  x:Name="ModelNumber"  Text="#123456" FontSize="16" TextColor="#FFFFFF"/>
+                                    <Label  x:Name="model"  Text="#123456" FontSize="16" TextColor="#FFFFFF"/>
                                     <Label Grid.Column="0" Grid.Row="6" Text="Start Date" Margin="0,10,0,0"  FontSize="10" TextColor="#F7F7F7"></Label>
-                                    <Label Grid.Column="0" Grid.Row="7" Text=" 12/03/1981" x:Name="StartDate"  FontSize="16" TextColor="#FFFFFF"></Label>
+                                    <Label Grid.Column="0" Grid.Row="7" x:Name="startdate" Text=" 12/03/1981"  FontSize="16" TextColor="#FFFFFF"></Label>
                                     <StackLayout Orientation="Horizontal">
                                         <StackLayout Orientation="Vertical">
                                             <Label  Margin="0,10,0,0" Text="Total No of Calibration" FontSize="10" TextColor="#F7F7F7"/>
 
-                                            <Label x:Name="TotalNoOfCalibration"  Text="06" FontSize="16" TextColor="#FFFFFF"/>
+                                            <Label x:Name="totalcalibration"  Text="06" FontSize="16" TextColor="#FFFFFF"/>
                                         </StackLayout>
                                         <StackLayout Orientation="Vertical">
                                             <Label  Margin="20,20,0,0"  Text="No of Calibration Completed" FontSize="10" TextColor="#F7F7F7"/>
-                                            <Label  x:Name="NoOfCalibrationCompleted"  Text="03" FontSize="16" TextColor="#FFFFFF"/>
+                                            <Label  x:Name="numberofcalibrationcompleted"  Text="03" FontSize="16" TextColor="#FFFFFF"/>
                                         </StackLayout>
                                     </StackLayout>
                                     <Button x:Name="CalibratinButon" Clicked="CalibratinButon_Clicked" Text="Calibration" TextColor="White" BackgroundColor="#D2453A" FontSize="14" WidthRequest="334" HeightRequest="47"/>
@@ -70,7 +72,7 @@
 
                                     <Image  Source="car_image" Margin="0,20,30,0"  HeightRequest="178" WidthRequest="111"/>
 
-                                    <Label Text="{Binding}" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand"/>
+                                    <Label Text="{Binding }"  TextColor="White" Margin="0,0,30,0" HorizontalOptions="Center" VerticalOptions="Center"/>
                                 </StackLayout>
 
                             </Grid>

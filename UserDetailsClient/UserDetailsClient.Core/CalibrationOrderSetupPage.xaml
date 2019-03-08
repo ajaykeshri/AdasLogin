@@ -18,28 +18,28 @@
                 <StackLayout BackgroundColor="#313A4D"  Margin="10,10,10,10" Orientation="Horizontal">
                     <StackLayout  Margin="20,20,20,20" Orientation="Vertical">
                         <Label  Text="VIN Number" FontSize="10" TextColor="#F7F7F7"/>
-                        <Label x:Name="VinNumber" Text="1HFKSKKDSK39SD234" FontSize="16" TextColor="#FFFFFF"/>
+                        <Label x:Name="VinNumber"  FontSize="16" TextColor="#FFFFFF"/>
                     </StackLayout>
                     <StackLayout Margin="60,20,20,20" Orientation="Vertical">
                         <Label  Margin="0,10,0,0" Text="Work Order" FontSize="10" TextColor="#F7F7F7"/>
-                        <Label  x:Name="WorkNumber"  Text="#123456" FontSize="16" TextColor="#FFFFFF"/>
+                        <Label  x:Name="WorkNumber"    FontSize="16" TextColor="#FFFFFF"/>
                     </StackLayout>
                     <StackLayout  Margin="60,20,20,20" Orientation="Vertical">
                         <Label  Margin="0,10,0,0" Text="Model" FontSize="10" TextColor="#F7F7F7"/>
-                        <Label  x:Name="ModelNumber"  Text="#123456" FontSize="16" TextColor="#FFFFFF"/>
+                        <Label  x:Name="ModelNumber"  Text="{Binding model}" FontSize="16" TextColor="#FFFFFF"/>
 
                     </StackLayout>
                     <StackLayout  Margin="60,20,20,20" Orientation="Vertical">
                         <Label  Text="Yesr" Margin="0,10,0,0"  FontSize="10" TextColor="#F7F7F7"></Label>
-                        <Label  Text="1985" x:Name="Year"  FontSize="16" TextColor="#FFFFFF"></Label>
+                        <Label  Text="{Binding startdate}" x:Name="Year"  FontSize="16" TextColor="#FFFFFF"></Label>
                     </StackLayout>
                     <StackLayout   Margin="60,20,20,20" Orientation="Vertical">
                         <Label  Margin="0,10,0,0" Text="Total No of Calibration" FontSize="10" TextColor="#F7F7F7"/>
-                        <Label x:Name="TotalNoOfCalibration"  Text="06" FontSize="16" TextColor="#FFFFFF"/>
+                        <Label x:Name="TotalNoOfCalibration"  Text="{Binding totalcalibration}" FontSize="16" TextColor="#FFFFFF"/>
                     </StackLayout>
                     <StackLayout  Margin="60,20,20,20" Orientation="Vertical">
                         <Label  Margin="20,20,0,0"  Text="No of Calibration Completed" FontSize="10" TextColor="#F7F7F7"/>
-                        <Label  x:Name="NoOfCalibrationCompleted"  Text="03" FontSize="16" TextColor="#FFFFFF"/>
+                        <Label  x:Name="NoOfCalibrationCompleted"  Text="{Binding numberofcalibrationcompleted}" FontSize="16" TextColor="#FFFFFF"/>
                     </StackLayout>
 
                 </StackLayout>
@@ -47,7 +47,7 @@
             <StackLayout Orientation="Horizontal" WidthRequest="1130" HeightRequest="558">
                 <StackLayout Orientation="Vertical">
                     <StackLayout Margin="0,10,10,10"   BackgroundColor="#313A4D" WidthRequest="747" HeightRequest="52"  Orientation="Horizontal">
-                        <Image Source="edit" Margin="10,0,20,20" HeightRequest="18" WidthRequest="18"></Image>
+                        <Image Source="checkbox" Margin="10,0,20,20" HeightRequest="18" WidthRequest="18"></Image>
                         <Label Margin="20,0,0,0" FontSize="14" TextColor="White" Text="ADAS Module Name " ></Label>
                         <Label  Margin="90,0,10,20" FontSize="14" TextColor="White" Text="Module Availability " ></Label>
                         <Label  Margin="60,0,10,20" FontSize="14" TextColor="White" Text="Target Availability" ></Label>
@@ -88,11 +88,11 @@
 
                                             <StackLayout WidthRequest="747" Orientation="Horizontal"  BackgroundColor="#313A4D" Spacing="0">
 
-                                                <Image x:Name="ItemImage"  HeightRequest="18" WidthRequest="18" Source="{Binding ItemImage}" Margin="10,0,0,0" HorizontalOptions="Start" />
-                                                <Label x:Name="AdasModuleName" HorizontalTextAlignment="Center" HeightRequest="40" WidthRequest="106" FontSize="12" Margin="32,0,0,0" Text="{Binding AdasModuleName}" TextColor="#FFFFFF"  VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" />
-                                                <Label x:Name="ModuleAvailability" HorizontalTextAlignment="Center" HeightRequest="40" WidthRequest="106" FontSize="12" Margin="38,0,0,0" Text="{Binding ModuleAvailability}" TextColor="#FFFFFF"  VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" />
-                                                <Label x:Name="TargetAvailability" HorizontalTextAlignment="Center" HeightRequest="40" WidthRequest="106" FontSize="12" Margin="38,0,0,0" Text="{Binding TargetAvailability}" TextColor="#FFFFFF"  VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" />
-                                                <Label x:Name="Status"   HorizontalTextAlignment="Center" HeightRequest="40" WidthRequest="106" FontSize="12" Margin="58,0,0,0" Text="{Binding Status}" TextColor="#FFFFFF"  VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" />
+                                                <Image x:Name="ItemImage"  HeightRequest="18" WidthRequest="18" Source="checkbox" Margin="10,0,0,0" HorizontalOptions="Start" />
+                                                <Label x:Name="AdasModuleName" HorizontalTextAlignment="Center" HeightRequest="40" WidthRequest="106" FontSize="12" Margin="32,0,0,0" Text="{Binding adasModuleName}" TextColor="#FFFFFF"  VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" />
+                                                <Label x:Name="ModuleAvailability" HorizontalTextAlignment="Center" HeightRequest="40" WidthRequest="106" FontSize="12" Margin="38,0,0,0" Text="{Binding moduleAvailability}" TextColor="#FFFFFF"  VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" />
+                                                <Label x:Name="TargetAvailability" HorizontalTextAlignment="Center" HeightRequest="40" WidthRequest="106" FontSize="12" Margin="38,0,0,0" Text="{Binding targetAvailability}" TextColor="#FFFFFF"  VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" />
+                                                <Label x:Name="Status"   HorizontalTextAlignment="Center" HeightRequest="40" WidthRequest="106" FontSize="12" Margin="58,0,0,0" Text="{Binding status}" TextColor="#FFFFFF"  VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" />
 
                                              </StackLayout>
 

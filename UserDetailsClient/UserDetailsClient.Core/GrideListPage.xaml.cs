@@ -1,6 +1,13 @@
-﻿using System;
+﻿using ADASMobileClient.Core.model;
+using ADASMobileClient.Core.ViewModel;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,47 +20,29 @@ namespace ADASMobileClient.Core
 	public partial class GrideListPage : ContentPage
 	{
         public List<string> People { get; set; }
+        HttpClient client;
+        private List<WorkOrderModel>  workOrderItems ;
+        public static string LocalBaseUrl = "https://192.168.0.102:20300";
+    
 
         public GrideListPage()
         {
+       
             InitializeComponent();
-            People = new List<string>
-            {
-                "Alan",
-                "Betty",
-                "Charles",
-                "David",
-                "Edward",
-                "Francis",
-                "Gary",
-                "Helen",
-                "Ivan",
-                "Joel",
-                "Kelly",
-                "Larry",
-                "Mary",
-                "Nancy",
-                "Olivia",
-                "Peter",
-                "Quincy",
-                "Robert",
-                "Stephen",
-                "Timothy",
-                "Ursula",
-                "Vincent",
-                "William",
-                "Xavier",
-                "Yvonne",
-                "Zack"
-            };
-            CV.BindingContext = this;
+            BindingContext = new MonkeysViewModel();
+
+          
         }
+
+     
 
         private async void CalibratinButon_Clicked(object sender, EventArgs e)
         {
-            //await Navigation.PushAsync(new CalibrationOrderSetup());
-            //  Application.Current.MainPage = new NavigationPage(new OrderPage());
-            await Navigation.PushAsync(new CalibrationOrderSetupPage());
+
+           // var cal = new CalibrationOrderSetupPage();
+            var CalId = "555555555BCDFE";
+
+            await Navigation.PushAsync( new CalibrationOrderSetupPage(CalId));
         }
         private async void NewCalibratinButon_Clicked(object sender, EventArgs e)
         {
