@@ -22,14 +22,14 @@ namespace ADASMobileClient.Core
         public List<string> People { get; set; }
         HttpClient client;
         private List<WorkOrderModel>  workOrderItems ;
-        public static string LocalBaseUrl = "https://192.168.0.102:20300";
+     
     
 
         public GrideListPage()
         {
        
             InitializeComponent();
-            BindingContext = new MonkeysViewModel();
+            BindingContext = new WorkOrderViewModel();
 
           
         }
@@ -40,7 +40,8 @@ namespace ADASMobileClient.Core
         {
 
            // var cal = new CalibrationOrderSetupPage();
-            var CalId = "555555555BCDFE";
+            var CalId = "1FMZU35POXZA54953";
+           
 
             await Navigation.PushAsync( new CalibrationOrderSetupPage(CalId));
         }

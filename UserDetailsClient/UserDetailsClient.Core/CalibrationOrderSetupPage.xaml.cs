@@ -17,7 +17,7 @@ namespace ADASMobileClient.Core
     {
         private WorkOrderModel workOrderModel;
         private  ObservableCollection<CalibrationDetailRow> multiSelectListItems;
-        public static string LocalBaseUrl = "https://192.168.0.102:20300";
+      //  public static string LocalBaseUrl = "https://172.30.166.161:20300";
         HttpClient client;
 
 
@@ -72,7 +72,7 @@ namespace ADASMobileClient.Core
                 if (!string.IsNullOrEmpty(idCallvar))
                 {
 
-                    var getResult = await client.GetAsync(LocalBaseUrl + "/api/entity/workorder/id/" + idCallvar);
+                    var getResult = await client.GetAsync(Constants.BaseUrlLocal + "/api/entity/workorder/id/" + idCallvar);
                     if (getResult.IsSuccessStatusCode)
                     {
 
@@ -83,6 +83,10 @@ namespace ADASMobileClient.Core
                         workOrderModel = reqMonkeys;
                         VinNumber.Text = workOrderModel.vinnumber;
                         WorkNumber.Text = workOrderModel.workorder;
+                        ModelNumber.Text = workOrderModel.model;
+                        Year.Text = workOrderModel.startdate;
+                        TotalNoOfCalibration.Text = workOrderModel.totalcalibration;
+                        NoOfCalibrationCompleted.Text = workOrderModel.numberofcalibrationcompleted;
 
                         MultiSelectListView.ItemsSource = workOrderModel.calibrationDetailRows;
 

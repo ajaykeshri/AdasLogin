@@ -21,6 +21,8 @@ namespace UserDetailsClient.UWP
         public MainPage()
         {
             this.InitializeComponent();
+           // global::Xamarin.Forms.Forms.SetFlags("Shell_Experimental", "Visual_Experimental", "CollectionView_Experimental");
+
 
             var app = new UserDetailsClient.Core.App();
          //   UserDetailsClient.Core.App.PCA.RedirectUri = WebAuthenticationBroker.GetCurrentApplicationCallbackUri().ToString();

@@ -27,10 +27,10 @@
                 <Label   Margin="20" Text="Active Work Order" FontSize="24" TextColor="#FFFFFF" ></Label>
                 <Label  Text="09 of 900" TextColor="#FFFFFF" FontSize="18" HorizontalOptions="EndAndExpand"></Label>
             </StackLayout>
-            <CollectionView  ItemsSource="{Binding Monkeys}" VerticalOptions="Center" HorizontalOptions="Center" Margin="20,0,10,0" 
+            <CollectionView    ItemsSource="{Binding WorkOrderModelList}" VerticalOptions="Center" HorizontalOptions="Center" Margin="20,0,10,0" 
                             >
                 <CollectionView.ItemsLayout>
-                    <GridItemsLayout Orientation="Vertical" Span="3"/>
+                    <GridItemsLayout  Orientation="Vertical" Span="3"/>
                    
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
@@ -65,7 +65,11 @@
                                             <Label  x:Name="numberofcalibrationcompleted"  Text="03" FontSize="16" TextColor="#FFFFFF"/>
                                         </StackLayout>
                                     </StackLayout>
-                                    <Button x:Name="CalibratinButon" Clicked="CalibratinButon_Clicked" Text="Calibration" TextColor="White" BackgroundColor="#D2453A" FontSize="14" WidthRequest="334" HeightRequest="47"/>
+                                    <Button  x:Name="CalibratinButon"  Clicked="CalibratinButon_Clicked" Text="Calibration" 
+                                             TextColor="White" BackgroundColor="#D2453A" FontSize="14"
+                                             WidthRequest="334" HeightRequest="47" >
+                                   
+                                    </Button>
                                 </StackLayout>
                                 <StackLayout Grid.Column="1"  Margin="10,10,30,0">
                                     <Image  Source="edit" HeightRequest="11" WidthRequest="11"/>
