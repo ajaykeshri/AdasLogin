@@ -31,7 +31,7 @@ namespace UserDetailsClient.Core
                     {
                         IAccount firstAccount = accounts.FirstOrDefault();
                         authResult = await App.PCA.AcquireTokenSilentAsync(App.Scopes, firstAccount);
-                        await Navigation.PushAsync(new GrideListPage());
+                       // await Navigation.PushAsync(new GrideListPage());
                         await RefreshUserDataAsync(authResult.AccessToken).ConfigureAwait(false);
                      
                         Device.BeginInvokeOnMainThread(() => { btnSignInSignOut.Text = "Sign out"; });
@@ -75,17 +75,19 @@ namespace UserDetailsClient.Core
                 JObject user = JObject.Parse(responseString);
 
                 //   slUser.IsVisible = true;
-               await Navigation.PushAsync(new GrideListPage());
+               //await Navigation.PushAsync(new GrideListPage());
 
                 Device.BeginInvokeOnMainThread(() =>
                 {
-                    // Navigation.PushAsync(new GrideListPage());
+                    Application.Current.Properties["token"] = token;// user["oid"]?.ToString();
+                    Navigation.PushAsync(new GrideListPage());
 
                     //lblDisplayName.Text = user["displayName"].ToString();
                     //lblGivenName.Text = user["givenName"].ToString();
                     //lblId.Text = user["id"].ToString();
                     //lblSurname.Text = user["surname"].ToString();
                     //lblUserPrincipalName.Text = user["userPrincipalName"].ToString();
+                   
 
                     // just in case
                     btnSignInSignOut.Text = "Sign out";

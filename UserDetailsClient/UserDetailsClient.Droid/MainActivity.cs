@@ -45,6 +45,7 @@ namespace UserDetailsClient.Droid
         {
             base.OnActivityResult(requestCode, resultCode, data);
             AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs(requestCode, resultCode, data);
+
         }
 
        

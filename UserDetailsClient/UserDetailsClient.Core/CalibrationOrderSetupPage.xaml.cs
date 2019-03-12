@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -16,6 +17,7 @@ namespace ADASMobileClient.Core
     public partial class CalibrationOrderSetupPage : ContentPage
     {
         private WorkOrderModel workOrderModel;
+        private string token;
         private  ObservableCollection<CalibrationDetailRow> multiSelectListItems;
       //  public static string LocalBaseUrl = "https://172.30.166.161:20300";
         HttpClient client;
@@ -59,13 +61,17 @@ namespace ADASMobileClient.Core
            
             client = new HttpClient();
             workOrderModel = new WorkOrderModel();
+          //  token = Application.Current.Properties["token"].ToString();
+          
 
             try
             {
                 System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
 
-                client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/text"));
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/text"));
+               
 
+              //  client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
                 // client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
                 //specify to use TLS 1.2 as default connection
                 // var id = "987654321ABCDEFG";

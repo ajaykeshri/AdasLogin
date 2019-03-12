@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="19px" viewBox="0 0 24 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>E2B2FB97-970F-4AB2-914A-8EB9671A3875</title>
+    <desc>Created with sketchtool.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Calibration-Order-Creation" transform="translate(-790.000000, -367.000000)" fill="#181E29">
+            <g id="Form_field" transform="translate(365.000000, 331.000000)">
+                <g id="Back/icon-Copy-3" transform="translate(425.000000, 33.000000)">
+                    <g id="barcode" transform="translate(0.000000, 3.000000)">
+                        <path d="M4,0 L0.8,0 C0.3584,0 0,0.354666667 0,0.791666667 L0,3.95833333 C0,4.39533333 0.3584,4.75 0.8,4.75 C1.2416,4.75 1.6,4.39533333 1.6,3.95833333 L1.6,1.58333333 L4,1.58333333 C4.4416,1.58333333 4.8,1.22866667 4.8,0.791666667 C4.8,0.354666667 4.4416,0 4,0 Z" id="Path"></path>
+                        <path d="M23.2,14.25 C22.7584,14.25 22.4,14.6046667 22.4,15.0416667 L22.4,17.4166667 L20,17.4166667 C19.5584,17.4166667 19.2,17.7713333 19.2,18.2083333 C19.2,18.6453333 19.5584,19 20,19 L23.2,19 C23.6416,19 24,18.6453333 24,18.2083333 L24,15.0416667 C24,14.6046667 23.6416,14.25 23.2,14.25 Z" id="Path"></path>
+                        <path d="M23.2,0 L20,0 C19.5584,0 19.2,0.354666667 19.2,0.791666667 C19.2,1.22866667 19.5584,1.58333333 20,1.58333333 L22.4,1.58333333 L22.4,3.95833333 C22.4,4.39533333 22.7584,4.75 23.2,4.75 C23.6416,4.75 24,4.39533333 24,3.95833333 L24,0.791666667 C24,0.354666667 23.6416,0 23.2,0 Z" id="Path"></path>
+                        <path d="M4,17.4166667 L1.6,17.4166667 L1.6,15.0416667 C1.6,14.6046667 1.2416,14.25 0.8,14.25 C0.3584,14.25 0,14.6046667 0,15.0416667 L0,18.2083333 C0,18.6453333 0.3584,19 0.8,19 L4,19 C4.4416,19 4.8,18.6453333 4.8,18.2083333 C4.8,17.7713333 4.4416,17.4166667 4,17.4166667 Z" id="Path"></path>
+                        <rect id="Rectangle" x="3.2" y="3.16666667" width="1.6" height="12.6666667"></rect>
+                        <rect id="Rectangle" x="6.4" y="3.16666667" width="1.6" height="9.5"></rect>
+                        <rect id="Rectangle" x="9.6" y="3.16666667" width="1.6" height="9.5"></rect>
+                        <rect id="Rectangle" x="12.8" y="3.16666667" width="1.6" height="12.6666667"></rect>
+                        <rect id="Rectangle" x="16" y="3.16666667" width="1.6" height="9.5"></rect>
+                        <rect id="Rectangle" x="19.2" y="3.16666667" width="1.6" height="12.6666667"></rect>
+                        <rect id="Rectangle" x="6.4" y="14.25" width="1.6" height="1.58333333"></rect>
+                        <rect id="Rectangle" x="9.6" y="14.25" width="1.6" height="1.58333333"></rect>
+                        <rect id="Rectangle" x="16" y="14.25" width="1.6" height="1.58333333"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

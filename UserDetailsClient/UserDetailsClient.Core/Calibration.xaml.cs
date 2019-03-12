@@ -117,11 +117,11 @@ namespace ADASMobileClient.Core
             client = new HttpClient();
 
 
-            //if (Application.Current.Properties.ContainsKey("token"))
-            //{
-            //    //  LabMessage.Text = Application.Current.Properties["token"].ToString();
-            //    token = Application.Current.Properties["token"].ToString();
-            //    Debug.WriteLine("TokenPass from Azure", token);
+            if (Application.Current.Properties.ContainsKey("token"))
+            {
+                //  LabMessage.Text = Application.Current.Properties["token"].ToString();
+                token = Application.Current.Properties["token"].ToString();
+                Debug.WriteLine("TokenPass from Azure", token);
 
 
                 var VinNumber = VinEnteredNumber.Text;
@@ -188,7 +188,7 @@ namespace ADASMobileClient.Core
                 }
 
 
-           // }
+            }
 
 
         }
@@ -203,7 +203,7 @@ namespace ADASMobileClient.Core
        
         private async void Cancel_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Calibration());
+            await Navigation.PushAsync(new GrideListPage());
         }
 
         private async void ConfirmCalibrationSubmitt_Clicked(object sender, EventArgs e)

@@ -18,7 +18,10 @@ namespace UserDetailsClient.Core
         public static string PolicyEditProfile = "B2C_1_edit_policy";
         public static string PolicyResetPassword = "B2C_1_reset_password";
 
-        public static string[] Scopes = { "https://dovervsg.onmicrosoft.com/demoapi/read" };
+        public static string[] Scopes = { "User.Read" };
+        public static string Username = string.Empty;
+
+        public static UIParent UiParent { get; set; }
 
 
         public static string AuthorityBase = $"https://login.microsoftonline.com/tfp/{Tenant}/";
@@ -26,9 +29,7 @@ namespace UserDetailsClient.Core
         public static string AuthorityEditProfile = $"{AuthorityBase}{PolicyEditProfile}";
         public static string AuthorityPasswordReset = $"{AuthorityBase}{PolicyResetPassword}";
 
-        public static string Username = string.Empty;
-
-        public static UIParent UiParent { get; set; }
+       
 
         //  public static string BaseUrl = "https://172.16.204.41:20300"; //office
         // public static string BaseUrl = "https://172.30.166.161:20300";    //jeo
@@ -46,11 +47,11 @@ namespace UserDetailsClient.Core
                 RedirectUri = $"msal{App.ClientID}://auth",
             };
 
-              // MainPage = new NavigationPage(new SplashPage());
+              MainPage = new NavigationPage(new SplashPage());
             // MainPage = new NavigationPage(new VehicalDetail());
            //  MainPage = new NavigationPage(new VerticalGridPage());
             // MainPage = new NavigationPage(new CalibrationOrderSetupPage());
-            MainPage = new NavigationPage(new GrideListPage());
+         //   MainPage = new NavigationPage(new GrideListPage());
 
         }
 
