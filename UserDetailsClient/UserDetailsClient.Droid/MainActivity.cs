@@ -36,7 +36,7 @@ namespace UserDetailsClient.Droid
             global::Xamarin.Forms.Forms.SetFlags("Shell_Experimental", "Visual_Experimental", "CollectionView_Experimental");
            
             global::Xamarin.Forms.Forms.Init(this, bundle);
-
+            Plugin.InputKit.Platforms.Droid.Config.Init(this, bundle);
             LoadApplication(new App());
             App.UiParent = new UIParent(this);
         }
