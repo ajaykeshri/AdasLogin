@@ -1,6 +1,5 @@
 ﻿using System;
 using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -8,13 +7,10 @@ using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
-using System.Threading.Tasks;
-using UserDetailsClient.Core.model;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using ADASMobileClient.Core.model;
-using UserDetailsClient.Core;
-using System.Collections.ObjectModel;
+using ADASMobileClient.Core.view;
 
 namespace ADASMobileClient.Core
 {
@@ -26,10 +22,11 @@ namespace ADASMobileClient.Core
         public List<CalibrationDetailRow> CalibrationDetailRowlList { get; private set; }
 
         private string token;
-        string BaseUrl = "https://vsgdev.centralus.cloudapp.azure.com:20300";
+        
+        string VinNumberScan;
        
 
-        public Calibration ()
+        public Calibration (string vinNumber)
 		{
 			InitializeComponent ();
             StackVinDisplay.SetValue(IsVisibleProperty, false);
@@ -38,70 +35,9 @@ namespace ADASMobileClient.Core
             vinEnterLayout.SetValue(IsVisibleProperty, true);
             actIndicator2.IsRunning = false;
             VehicleDetailsLabel.SetValue(IsVisibleProperty, false);
-
+            VinNumberScan = vinNumber;
 
         }
-
-
-        //private async void Submitt_Clicked(object sender, EventArgs e)
-        //{
-
-
-        //    actIndicator2.IsRunning = true;
-        //    StackVinDisplay.SetValue(IsVisibleProperty, false);
-
-
-        //    var httpClientHandler = new HttpClientHandler();
-        //    client = new HttpClient();
-
-
-
-        //        //  LabMessage.Text = Application.Current.Properties["token"].ToString();
-        //       // token = Application.Current.Properties["token"].ToString();
-        //       // Debug.WriteLine("TokenPass from Azure", token);
-
-
-        //        var VinNumber = VinEnteredNumber.Text;
-        //        WorkOrderModel workOrderModel = new WorkOrderModel();
-        //          workOrderModel.vinnumber = VinNumber;
-        //         workOrderModel.id = VinNumber;
-        //         workOrderModel.model = "Ford";
-
-
-
-        //        try
-        //        {
-        //            System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
-
-        //            var json = JsonConvert.SerializeObject(workOrderModel);
-        //            var content = new StringContent(json, Encoding.UTF8, "application/json");
-
-        //            HttpResponseMessage response = null;
-
-        //            response = await client.PostAsync(Constants.BaseUrlLocal + "/api/entity/workorder", content);
-
-
-        //        if (response.IsSuccessStatusCode)
-        //        {
-        //            Debug.WriteLine(@"                TodoItem successfully saved.");
-        //            actIndicator2.IsRunning = false;
-        //            await Navigation.PushAsync(new GrideListPage());
-
-
-
-        //        }
-        //        else {
-        //            Debug.WriteLine(@"     Faied to update data .");
-        //        }
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            Debug.WriteLine("Exception Error ", ex.ToString());
-        //        }
-
-
-
-        //}
 
 
 
@@ -124,7 +60,8 @@ namespace ADASMobileClient.Core
                 Debug.WriteLine("TokenPass from Azure", token);
 
 
-                var VinNumber = VinEnteredNumber.Text;
+                var VinNumber = VinEnteredNumber.Text ;
+              //  var VinNumber =  VinNumberScan;
 
                 try
                 {
@@ -134,13 +71,14 @@ namespace ADASMobileClient.Core
 
                     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
                     //specify to use TLS 1.2 as default connection
-                    var getResult = await client.GetAsync(BaseUrl + "/api/vehicle/vindecode/" + VinNumber);
+                    var getResult = await client.GetAsync(Constants.BaseUrlLocal + "/api/vehicle/vindecode/" + VinNumber);
                     if (getResult.IsSuccessStatusCode)
                     {
                         StackVinDisplay.SetValue(IsVisibleProperty, false);
                         actIndicator2.IsRunning = false;
                         var response = await getResult.Content.ReadAsStringAsync();
 
+                                              
                         vehicleVinResponse = JsonConvert.DeserializeObject<VehicleVinResponse>(response);
                         LabCount.Text = Convert.ToString(vehicleVinResponse.Count);
                         LabMessage.Text = vehicleVinResponse.Message;
@@ -232,9 +170,9 @@ namespace ADASMobileClient.Core
             workOrderModel.model = vehicleVinResponse.Results[6].Value;
             workOrderModel.startdate = "03032019";
             workOrderModel.enddate = "13032019";
-            workOrderModel.totalcalibration = "6";
-            workOrderModel.numberofcalibrationcompleted = "3";
-            workOrderModel.totalactiveworkorder = "5";
+            workOrderModel.totalcalibration = "2";
+            workOrderModel.numberofcalibrationcompleted = "1";
+            workOrderModel.totalactiveworkorder = "2";
             workOrderModel.iscompletedcalibration = true;
             workOrderModel.isactive = true;
             workOrderModel.createdby = "ADASAdmin";
@@ -245,7 +183,18 @@ namespace ADASMobileClient.Core
 
            
             CalibrationDetailRowlList = new List<CalibrationDetailRow>();
-           // CalibrationDetailRow calibrationDetailRows = new CalibrationDetailRow();
+            // CalibrationDetailRow calibrationDetailRows = new CalibrationDetailRow();
+            CalibrationDetailRowlList.Add(new CalibrationDetailRow()
+            {
+
+                adasModuleName = "Module111",
+                moduleAvailability = "Available",
+                targetAvailability = "Standard",
+                status = "Progress"
+
+
+
+            });
             CalibrationDetailRowlList.Add(new CalibrationDetailRow()
             {
 
@@ -261,6 +210,17 @@ namespace ADASMobileClient.Core
             {
 
                 adasModuleName = "Module44444",
+                moduleAvailability = "Available",
+                targetAvailability = "Standard",
+                status = "Progress"
+
+
+
+            });
+            CalibrationDetailRowlList.Add(new CalibrationDetailRow()
+            {
+
+                adasModuleName = "Module555",
                 moduleAvailability = "Available",
                 targetAvailability = "Standard",
                 status = "Progress"
@@ -307,6 +267,18 @@ namespace ADASMobileClient.Core
 
 
         }
-
+        private void OnImageButtonVinClicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new ScanPage());
+        }
+        private void OnImageButtonOrderNumberClicked(object sender, EventArgs e)
+        {
+             Navigation.PushAsync(new ScanPage());
+        }
+        private void OnImageButtonRepiarOrderNumberClicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new ScanPage());
+        }
+        
     }
 }

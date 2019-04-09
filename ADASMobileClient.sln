@@ -4,6 +4,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.27703.2018
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADASMobileClient.Droid", "UserDetailsClient\UserDetailsClient.Droid\ADASMobileClient.Droid.csproj", "{DD942D28-518D-4C06-A0D9-A7D8AB3F54E7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CB126428-9739-4C4E-9CBB-F09C03080415} = {CB126428-9739-4C4E-9CBB-F09C03080415}
+		{4546452D-55D8-41CA-B68B-F8D8D827EE4A} = {4546452D-55D8-41CA-B68B-F8D8D827EE4A}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADASMobileClient.iOS", "UserDetailsClient\UserDetailsClient.iOS\ADASMobileClient.iOS.csproj", "{4546452D-55D8-41CA-B68B-F8D8D827EE4A}"
 EndProject

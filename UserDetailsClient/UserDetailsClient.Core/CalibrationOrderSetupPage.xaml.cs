@@ -19,7 +19,6 @@ namespace ADASMobileClient.Core
         private WorkOrderModel workOrderModel;
         private string token;
         private  ObservableCollection<CalibrationDetailRow> multiSelectListItems;
-      //  public static string LocalBaseUrl = "https://172.30.166.161:20300";
         HttpClient client;
 
 
@@ -66,7 +65,8 @@ namespace ADASMobileClient.Core
 
             try
             {
-                System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
+              
+  System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
 
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/text"));
                
@@ -78,10 +78,9 @@ namespace ADASMobileClient.Core
                 if (!string.IsNullOrEmpty(idCallvar))
                 {
 
-                    var getResult = await client.GetAsync(Constants.BaseUrlLocal + "/api/entity/workorder/id/" + idCallvar);
+                    var getResult = await client.GetAsync(Constants.LocalHost + "/api/entity/workorder/id/" + idCallvar);
                     if (getResult.IsSuccessStatusCode)
                     {
-
                         var response = await getResult.Content.ReadAsStringAsync();
 
 

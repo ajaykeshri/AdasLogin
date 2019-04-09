@@ -29,9 +29,19 @@ namespace ADASMobileClient.Core
         {
        
             InitializeComponent();
-            BindingContext = new WorkOrderViewModel();
+            try
+            {
 
-          
+                BindingContext = new WorkOrderViewModel();
+            }
+            catch (Exception ex) {
+
+                            
+
+            }
+
+
+
         }
 
      
@@ -49,7 +59,8 @@ namespace ADASMobileClient.Core
         {
             //await Navigation.PushAsync(new CalibrationOrderSetup());
             //  Application.Current.MainPage = new NavigationPage(new OrderPage());
-            await Navigation.PushAsync(new Calibration());
+            string vinnumber=null;
+            await Navigation.PushAsync(new Calibration(vinnumber));
         }
 
         

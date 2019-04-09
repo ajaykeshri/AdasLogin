@@ -47,12 +47,14 @@ namespace UserDetailsClient.Core
                 RedirectUri = $"msal{App.ClientID}://auth",
             };
 
-            //  MainPage = new NavigationPage(new SplashPage());
+           //  MainPage = new NavigationPage(new SplashPage());
             // MainPage = new NavigationPage(new VehicalDetail());
             //  MainPage = new NavigationPage(new VerticalGridPage());
             // MainPage = new NavigationPage(new CalibrationOrderSetupPage());
-            //   MainPage = new NavigationPage(new GrideListPage());
-                MainPage = new NavigationPage(new ScanPage());
+            //  MainPage = new NavigationPage(new GrideListPage());
+            MainPage = new NavigationPage(new ScanPage());
+            //  MainPage = new NavigationPage(new OcrScan());
+            // MainPage = new NavigationPage(new Mark1());
 
         }
 

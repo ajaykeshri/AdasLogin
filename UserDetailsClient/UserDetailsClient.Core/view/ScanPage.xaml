@@ -38,7 +38,7 @@
                Color="#333B4A"/>
 
             <StackLayout BackgroundColor="#1D222C" Orientation="Vertical">
-                <Image Source="frontcar"  BackgroundColor="#1D222C" HeightRequest="400"></Image>
+                <ImageButton x:Name="ScanImage" Source="frontcar"  BackgroundColor="#1D222C" HeightRequest="400"></ImageButton>
                     <Label Text="Vin Number" FontFamily="Roboto" FontSize="14" TextColor="#9B9B9B" ></Label>
                 <custom:CustomEntry  
                              x:Name="VinEnteredNumber"
@@ -51,10 +51,15 @@
                              WidthRequest="464"
                              FontFamily="Roboto"
                              BackgroundColor="#333B4A"
-                              TextColor="#FFFFFF" 
+                             TextColor="#FFFFFF" 
                              FontAttributes="Bold"  
+                             Keyboard="Default"
+                    
                              />
-                      <Button Text="Confirm"  WidthRequest="160" HeightRequest="47" BackgroundColor="#F44336" TextColor="#FFFFFF" FontSize="18" FontFamily="Roboto"></Button>
+                      <Button Text="Confirm"  WidthRequest="160" HeightRequest="47"
+                              BackgroundColor="#F44336" TextColor="#FFFFFF" 
+                              FontSize="18" FontFamily="Roboto"
+                              Clicked="Confirm_Button_Clicked" ></Button>
 
             </StackLayout>
            

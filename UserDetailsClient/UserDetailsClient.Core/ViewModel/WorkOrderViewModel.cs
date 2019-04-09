@@ -17,7 +17,9 @@ namespace ADASMobileClient.Core.ViewModel
         private string token;
 
         public ObservableCollection<WorkOrderModel> WorkOrderModelList { get; private set; }
-     
+        string BaseLocalHost = "https://192.168.0.102:20300";
+
+
 
         public WorkOrderViewModel()
         {
@@ -32,7 +34,7 @@ namespace ADASMobileClient.Core.ViewModel
             var httpClientHandler = new HttpClientHandler();
             WorkOrderModelList = new ObservableCollection<WorkOrderModel>();
             client = new HttpClient();
-           // token = Application.Current.Properties["token"].ToString();
+            token = Application.Current.Properties["token"].ToString();
            // Debug.WriteLine("TokenPass from Azure", token);
             try
             {
@@ -45,8 +47,10 @@ namespace ADASMobileClient.Core.ViewModel
 
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/text"));
 
-               // client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-                var getResult = await client.GetAsync(Constants.BaseUrlLocal + "/api/entity/workorder/all");
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+               // var getResult = await client.GetAsync(Constants.BaseUrlLocal + "/api/entity/workorder/all");
+                var getResult = await client.GetAsync(Constants.LocalHost + "/api/entity/workorder/all");
+               
                 if (getResult.IsSuccessStatusCode)
                 {
                     

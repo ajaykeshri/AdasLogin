@@ -9,15 +9,33 @@
     <ContentPage.Content>
 
         <StackLayout Orientation="Vertical" >
-            <StackLayout Orientation="Horizontal">
-                <SearchBar  BackgroundColor="#333B4A"  TextColor="#FFFFFF" WidthRequest="733" HeightRequest="39" x:Name="SearchBar" SearchCommand="{Binding SearchCommand}" SearchCommandParameter="{Binding Text, Source={x:Reference SearchBar}}">
+            <StackLayout Margin="0,0" Orientation="Horizontal">
+                <Frame CornerRadius="1"            
+                    VerticalOptions="Start"
+                    HasShadow="False"
+                    BackgroundColor="Black"
+                    BorderColor="White"
+                    WidthRequest="733"
+                    HeightRequest="39"
+                       Margin="0,20"
+                    Padding="1">
+                    <SearchBar  BackgroundColor="#333B4A"  TextColor="#FFFFFF"  x:Name="SearchBar" SearchCommand="{Binding SearchCommand}" SearchCommandParameter="{Binding Text, Source={x:Reference SearchBar}}">
                     <SearchBar.Behaviors>
                         <local:TextChangedBehavior />
+                        
                     </SearchBar.Behaviors>
                 </SearchBar>
-                <Image Margin="20" Source="sort" HeightRequest="39" WidthRequest="47" BackgroundColor="#A5AEB7"></Image>
-                <Image Margin="20" Source="filter" HeightRequest="39" WidthRequest="47" BackgroundColor="#A5AEB7"></Image>
+                </Frame>
 
+
+
+                <Image    BackgroundColor="#A5AEB7"   WidthRequest="49"
+                    HeightRequest="39"   VerticalOptions="Center" Margin="20" Source="sort" Aspect="AspectFill"  ></Image>
+
+
+                <Image  BackgroundColor="#A5AEB7"   WidthRequest="49"
+                    HeightRequest="39"   VerticalOptions="Center" Margin="20" Source="filter" Aspect="AspectFill"  ></Image>
+       
 
                 <Button  Clicked="NewCalibratinButon_Clicked" HeightRequest="47" WidthRequest="236" VerticalOptions="Center"  HorizontalOptions="EndAndExpand"  BackgroundColor="Red" TextColor="White" FontSize="12" Text="Create New Calibration Order"></Button>
 
@@ -27,8 +45,8 @@
                 <Label   Margin="20" Text="Active Work Order" FontSize="24" TextColor="#FFFFFF" ></Label>
                 <Label  Text="09 of 900" TextColor="#FFFFFF" FontSize="18" HorizontalOptions="EndAndExpand"></Label>
             </StackLayout>
-            <CollectionView    ItemsSource="{Binding WorkOrderModelList}" VerticalOptions="Center" HorizontalOptions="Center" Margin="20,0,10,0" 
-                            >
+            
+            <CollectionView    ItemsSource="{Binding WorkOrderModelList}" VerticalOptions="Center" HorizontalOptions="Center" Margin="20,0,10,0" >
                 <CollectionView.ItemsLayout>
                     <GridItemsLayout  Orientation="Vertical" Span="3"/>
                    
@@ -61,8 +79,8 @@
                                             <Label x:Name="totalcalibration"  Text="06" FontSize="16" TextColor="#FFFFFF"/>
                                         </StackLayout>
                                         <StackLayout Orientation="Vertical">
-                                            <Label  Margin="20,20,0,0"  Text="No of Calibration Completed" FontSize="10" TextColor="#F7F7F7"/>
-                                            <Label  x:Name="numberofcalibrationcompleted"  Text="03" FontSize="16" TextColor="#FFFFFF"/>
+                                            <Label  Margin="20,10,0,0"  Text="No of Calibration Completed" FontSize="10" TextColor="#F7F7F7"/>
+                                            <Label   Margin="20,    0,0,0"  x:Name="numberofcalibrationcompleted"  Text="03" FontSize="16" TextColor="#FFFFFF"/>
                                         </StackLayout>
                                     </StackLayout>
                                     <Button  x:Name="CalibratinButon"  Clicked="CalibratinButon_Clicked" Text="Calibration" 
@@ -72,18 +90,22 @@
                                     </Button>
                                 </StackLayout>
                                 <StackLayout Grid.Column="1"  Margin="10,10,30,0">
-                                    <Image  Source="edit" HeightRequest="11" WidthRequest="11"/>
+                                    <Image  Source="edit" Margin="0,0,20,0"  HeightRequest="20" WidthRequest="20"/>
 
-                                    <Image  Source="car_image" Margin="0,20,30,0"  HeightRequest="178" WidthRequest="111"/>
+                                    <Image  Source="car_image" Margin="-40,5,20,0"  HeightRequest="200" WidthRequest="200"/>
 
-                                    <Label Text="{Binding }"  TextColor="White" Margin="0,0,30,0" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                    <Label Text="{Binding }"  TextColor="White" Margin="0,0,10,0" HorizontalOptions="Center" VerticalOptions="Center"/>
                                 </StackLayout>
 
                             </Grid>
                         </Frame>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
+                <CollectionView.EmptyView>
+                    <Label TextColor="Red" Text="No items currently exist!"/>
+                </CollectionView.EmptyView>
             </CollectionView>
+           
         </StackLayout>
         </ContentPage.Content>
 </ContentPage>

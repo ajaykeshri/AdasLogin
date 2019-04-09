@@ -4,8 +4,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
     x:Class="UserDetailsClient.Core.MainPage"
-    Title="ADAS Calibration"  
-   
+    Title="ADAS Calibration"
+    xmlns:custom="clr-namespace:ADASMobileClient.Core"
     ios:Page.UseSafeArea="true">
     <ContentPage.Content>
         <StackLayout Orientation="Horizontal" >
@@ -26,7 +26,11 @@
                      WidthRequest="300" HeightRequest="50"
          HorizontalOptions="Center"/>
 
+              
+              <ActivityIndicator x:Name="actIndicator2"
+                             BackgroundColor="Transparent" />
 
+             
             </StackLayout>
 
         </StackLayout>

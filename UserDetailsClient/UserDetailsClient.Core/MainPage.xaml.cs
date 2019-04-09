@@ -16,10 +16,12 @@ namespace UserDetailsClient.Core
         public MainPage()
         {
             InitializeComponent();
+            actIndicator2.IsRunning = false;
         }
 
         async void OnSignInSignOut(object sender, EventArgs e)
         {
+            actIndicator2.IsRunning = true;
             AuthenticationResult authResult = null;
             IEnumerable<IAccount> accounts = await App.PCA.GetAccountsAsync();
             try
@@ -35,25 +37,31 @@ namespace UserDetailsClient.Core
                         await RefreshUserDataAsync(authResult.AccessToken).ConfigureAwait(false);
                      
                         Device.BeginInvokeOnMainThread(() => { btnSignInSignOut.Text = "Sign out"; });
+                        actIndicator2.IsRunning = false;
                     }
                     catch (MsalUiRequiredException ex)
                     {
                         authResult = await App.PCA.AcquireTokenAsync(App.Scopes, App.UiParent);
                         await RefreshUserDataAsync(authResult.AccessToken);
                         Device.BeginInvokeOnMainThread(() => { btnSignInSignOut.Text = "Sign out"; });
+                        actIndicator2.IsRunning = false;
                     }
                 }
                 else
                 {
                     while (accounts.Any())
                     {
+                        actIndicator2.IsRunning = true;
                         await App.PCA.RemoveAsync(accounts.FirstOrDefault());
                         accounts = await App.PCA.GetAccountsAsync();
                         await Navigation.PushAsync(new GrideListPage());
+                        actIndicator2.IsRunning = false;
                     }
 
-                   // slUser.IsVisible = false;
+                    // slUser.IsVisible = false;
+                  
                     Device.BeginInvokeOnMainThread(() => { btnSignInSignOut.Text = "Sign in"; });
+                    actIndicator2.IsRunning = true;
                 }
             }
             catch (Exception)
@@ -91,6 +99,7 @@ namespace UserDetailsClient.Core
 
                     // just in case
                     btnSignInSignOut.Text = "Sign out";
+                    actIndicator2.IsRunning = false;
                 });
             }
             else

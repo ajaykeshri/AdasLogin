@@ -3,15 +3,17 @@ using Android.App;
 using Android.Content.PM;
 using Microsoft.Identity.Client;
 using Android.Content;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Android.OS;
-
 using UserDetailsClient.Core;
-using Xamarin.Forms.Platform.Android;
 using System.Net;
-using Xamarin.Forms;
+using Plugin.CurrentActivity;
+using Plugin.Permissions;
+
+//using Tesseract;
+
+
+
+
 
 namespace UserDetailsClient.Droid
 {
@@ -36,7 +38,21 @@ namespace UserDetailsClient.Droid
             global::Xamarin.Forms.Forms.SetFlags("Shell_Experimental", "Visual_Experimental", "CollectionView_Experimental");
            
             global::Xamarin.Forms.Forms.Init(this, bundle);
+            // below code use for OCR and Bar code enable library
             Plugin.InputKit.Platforms.Droid.Config.Init(this, bundle);
+            ZXing.Net.Mobile.Forms.Android.Platform.Init();
+            ZXing.Mobile.MobileBarcodeScanner.Initialize(Application);
+            try
+            {
+                LoadApplication(new App());
+            }
+            catch (System.Exception ex)
+            {
+                var thing = ex.Message;
+            }
+
+            // below line use for camera init
+            CrossCurrentActivity.Current.Init(this, bundle);
             LoadApplication(new App());
             App.UiParent = new UIParent(this);
         }
@@ -48,7 +64,19 @@ namespace UserDetailsClient.Droid
 
         }
 
-       
+
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
+        {
+            ZXing.Net.Mobile.Forms.Android.PermissionsHandler.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+
+
+        //public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
+        //{
+        //    PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+        //}
+
     }
 }
 
